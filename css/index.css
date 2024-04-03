@@ -1,0 +1,40 @@
+#name {
+    font-family: "Dancing Script" , cursive;
+    font-size: 3rem;
+    
+}
+#profile-picture {
+    border-radius: 50%;
+    margin: 1em;
+    width: 30%;
+    border-color: gold;
+    padding: 0.5em;
+    border-width: 0.5dvi;
+    border-style: solid;
+}
+ul {
+    list-style-type: square;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+  }
+.social-icon {
+    display: inline-block;
+    width: 60px; 
+    height: 60px;
+    background-size: cover;
+  }
+body {
+    height: 100vh;
+    background-color: royalblue;
+    color: gold;
+    font-family: "Open Sans", "sans-serif";
+}
