@@ -1,40 +1,81 @@
+#navigation ul {
+  display:flex;
+  gap:3em;
+  padding-top:2ch;
+  list-style-type: none;
+}
+a:hover {
+  opacity: 0.5;
+}
+#navigation {
+  position: sticky;
+  top:0;
+  scroll-padding-top:2ch;
+  background-color: gray;
+  color: black;
+}
 #name {
-    font-family: "Dancing Script" , cursive;
-    font-size: 3rem;
-    
+    font-family: "Montserrat" , cursive;
+    font-size: 5rem;
+    padding-top:2ch;
+}
+h2 {
+  font-weight: bold;
+  font-size: 2em;
 }
 #profile-picture {
     border-radius: 50%;
     margin: 1em;
     width: 30%;
-    border-color: gold;
+    border-color: black;
     padding: 0.5em;
     border-width: 0.5dvi;
     border-style: solid;
 }
-ul {
+#experience ul {
     list-style-type: square;
     padding: 0;
     margin: 0;
-  }
+    display: flex;
+    flex-direction: column;
+}
+
+.job {
+    display: flex;
+    flex-flow: column wrap;
+    margin-bottom: 0px;
+}
+
+.job h3 {
+    flex: 1;
+    padding: none;
+}
+
+.dates {
+    margin-left: auto;
+    order: 2; 
+}
+
+.description {
+    flex-basis: 75%;
+    order: 3;
+    word-wrap: break-word; 
+}
   li {
-    display: block;
     padding: 10px;
-    margin-bottom: 5px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    
+    background-color: black;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 20px; 
+    margin-right: 60px;
   }
 .social-icon {
-    display: inline-block;
-    width: 60px; 
-    height: 60px;
-    background-size: cover;
+    margin: 0 10px;
+    font-size: 32px;
   }
 body {
     height: 100vh;
-    background-color: royalblue;
-    color: gold;
-    font-family: "Open Sans", "sans-serif";
+    background-color: gray;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
