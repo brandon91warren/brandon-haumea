@@ -1,5 +1,7 @@
-#navigation ul {
+#Navigation ul {
   display:flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   gap:3em;
   padding-top:2ch;
   list-style-type: none;
@@ -7,18 +9,26 @@
 a:hover {
   opacity: 0.5;
 }
-#navigation {
+#Navigation li{
   position: sticky;
   top:0;
   scroll-padding-top:2ch;
   background-color: gray;
   color: black;
+  display: block;
+  text-align: center;
+  padding: 15px;
+}
+#About {
+  display: grid;
+  grid-template-columns: 75%;
+  grid-template-rows: auto;
+  gap: 20px;
 }
 #name {
     font-family: "Montserrat" , cursive;
     font-size: 5rem;
-    padding-top:2ch;
-}
+  }
 h2 {
   font-weight: bold;
   font-size: 2em;
@@ -26,20 +36,18 @@ h2 {
 #profile-picture {
     border-radius: 50%;
     margin: 1em;
-    width: 30%;
+    width: 25%;
     border-color: black;
     padding: 0.5em;
     border-width: 0.5dvi;
     border-style: solid;
 }
-#experience ul {
-    list-style-type: square;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+#Experience {
+  display: grid;
+  grid-template-columns: 50%;
+  grid-template-rows: auto;
+  gap: 20px;
 }
-
 .job {
     display: flex;
     flex-flow: column wrap;
@@ -53,11 +61,10 @@ h2 {
 
 .dates {
     margin-left: auto;
-    order: 2; 
+    order: 2;
 }
 
 .description {
-    flex-basis: 75%;
     order: 3;
     word-wrap: break-word; 
 }
@@ -65,7 +72,7 @@ h2 {
     padding: 10px;
     background-color: black;
     display: inline-flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: 20px; 
     margin-right: 60px;
   }
@@ -78,4 +85,44 @@ body {
     background-color: gray;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
+}
+/* Media query for tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+ /* Change font size and color of headers */
+ h1, h2, h3 {
+  font-size: 24px; /* 1st change: Decrease font size */
+  color: whitesmoke /* 2nd change: Change text color */
+}
+
+/* Change padding and background color of unordered lists */
+ul {
+  padding: 10px; /* 1st change: Increase padding */
+  background-color: darkgrey /* 2nd change: Change background color */
+}
+
+/* Change font size and font style of top name */
+#name {
+  font-size: 36px; /* 1st change: Increase font size */
+  font-style: italic; /* 2nd change: Apply italic font style */
+}
+}
+/* Media query for larger screens */
+@media (min-width: 1025px) {
+  /* Change font size and color of headers */
+  h1, h2, h3 {
+    font-size: 32px; /* 1st change: Increase font size */
+    color: black; /* 2nd change: Adjust text color */
+  }
+
+  /* Change padding and background color of unordered lists */
+  ul {
+    padding: 15px; /* 1st change: Increase padding further */
+    background-color: gray /* 2nd change: Lighter background color */
+  }
+
+  /* Change font size and font weight of top name */
+  #name {
+    font-size: 48px; /* 1st change: Increase font size further */
+    font-weight: bold; /* 2nd change: Apply bold font weight */
+  }
 }
