@@ -69,4 +69,69 @@ for (var i = 0; i < skills.length; i++) {
     // Append the skill item to the skillsList
     skillsList.appendChild(skill);
 }
+ // Select the #messages section by id
+ var messageSection = document.getElementById("messages");
+
+ // Select the <ul> element within the messageSection
+ var messageList = messageSection.querySelector("ul");
+
+ function updateVisibility() {
+    // Check if the messageList is empty
+    if (messageList.children.length === 0) {
+        messageSection.style.display = "none"; // Hide the messages section
+    } else {
+        messageSection.style.display = "block"; // Show the messages section
+    }
+}
+ // Create a new list item element for a new message
+ var newMessage = document.createElement("li");
+
+  // Set the inner HTML of the newMessage element
+  newMessage.innerHTML = `
+  <a href="mailto:${usersEmail}">${usersName}</a>
+  <span>${usersMessage}</span>
+`;
+
+// Create a new button element for editing messages
+var editButton = document.createElement("button");
+editButton.innerText = "edit";
+editButton.type = "button";
+
+// Add event listener to the editButton
+editButton.addEventListener("click", function() {
+    var newMessageText = prompt("Enter the new message:");
+    if (newMessageText !== null && newMessageText !== "") {
+        newMessage.querySelector("span").textContent = newMessageText;
+    }
 });
+
+  // Create a new button element for removing messages
+  var removeButton = document.createElement("button");
+  removeButton.innerText = "remove";
+  removeButton.type = "button";
+
+  // Add event listener to the removeButton
+  removeButton.addEventListener("click", function() {
+      // Find the button's parent element using DOM Traversal
+      var entry = removeButton.parentNode;
+
+      // Remove the entry element from the DOM
+      entry.remove();
+  });
+
+// Update visibility after removing an entry
+updateVisibility();
+});
+
+// Append the editButton and removeButton to the newMessage
+newMessage.appendChild(editButton);
+newMessage.appendChild(removeButton);
+
+// Append the newMessage to the messageList
+messageList.appendChild(newMessage);
+
+// Update visibility after adding a new message
+updateVisibility();
+
+// Example of creating a new message
+createNewMessage("Example message");
