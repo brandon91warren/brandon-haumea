@@ -1,128 +1,169 @@
+/* Modify existing styles for the navigation and links */
 #Navigation ul {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap:3em;
-  padding-top:2ch;
+  gap: 3em;
+  padding-top: 2ch;
   list-style-type: none;
 }
+
 a:hover {
   opacity: 0.5;
 }
-#Navigation li{
+
+#Navigation li {
   position: sticky;
-  top:0;
-  scroll-padding-top:2ch;
-  background-color: gray;
+  top: 0;
+  scroll-padding-top: 2ch;
+  background-color: lightgray;
   color: black;
   display: block;
-  text-align: center;
+  text-align: center; /* Center the text */
   padding: 15px;
 }
+
+/* Add styles for other sections */
 #About {
   display: grid;
-  grid-template-columns: 75%;
-  grid-template-rows: auto;
+  text-align: center; /* Center the text */
   gap: 20px;
 }
+
 #name {
-    font-family: "Montserrat" , cursive;
-    font-size: 5rem;
-  }
+  font-family: "Montserrat", cursive;
+  font-size: 5rem;
+  text-align: center; /* Center the text */
+}
+
 h2 {
   font-weight: bold;
   font-size: 2em;
+  text-align: center; /* Center the text */
 }
+
 #profile-picture {
-    border-radius: 50%;
-    margin: 1em;
-    width: 25%;
-    border-color: black;
-    padding: 0.5em;
-    border-width: 0.5dvi;
-    border-style: solid;
+  border-radius: 50%;
+  margin: 1em auto; /* Center horizontally */
+  width: 15%;
+  border-color: black;
+  padding: 0.5em;
+  border-width: 0.5dvi;
+  border-style: solid;
 }
+
 #Experience {
   display: grid;
-  grid-template-columns: 50%;
-  grid-template-rows: auto;
+  text-align: center; /* Center the text */
   gap: 20px;
 }
+
 .job {
-    display: flex;
-    flex-flow: column wrap;
-    margin-bottom: 0px;
+  display: flex;
+  flex-flow: column wrap;
+  margin-bottom: 0px;
 }
 
 .job h3 {
-    flex: 1;
-    padding: none;
+  flex: 1;
+  padding: none;
+  text-align: center; /* Center the text */
 }
 
 .dates {
-    margin-left: auto;
-    order: 2;
+  order: 2;
+  text-align: center; /* Center the text */
 }
 
 .description {
-    order: 3;
-    word-wrap: break-word; 
+  order: 3;
+  word-wrap: break-word;
+  text-align: center; /* Center the text */
 }
-  li {
-    padding: 10px;
-    display: inline-flex;
-    background-color: white;
-    justify-content: space-around;
-    margin-bottom: 20px; 
-    margin-right: 60px;
-  }
+
+/* Style for the Connect section */
+li {
+  padding: 10px;
+  display: inline-flex;
+  background-color: lightgray;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  margin-right: 60px;
+  text-align: center; /* Center the text */
+}
+
 .social-icon {
-    margin: 0 10px;
-    font-size: 32px;
-  }
-body {
-    height: 100vh;
-    background-color: gray;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0 10px;
+  font-size: 32px;
 }
+
+/* Add styles for text boxes */
+input[type="text"],
+input[type="email"],
+textarea {
+  /* Change background and text color of text boxes */
+  background-color: lightgray;
+  color: black;
+  /* Add padding and border */
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center; /* Center the text */
+}
+
+body {
+  height: 100vh;
+  background-color: lightgray;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center; /* Center the text */
+}
+
 /* Media query for tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
- /* Change font size and color of headers */
- h1, h2, h3 {
-  font-size: 24px; /* 1st change: Decrease font size */
-  color: whitesmoke /* 2nd change: Change text color */
-}
-
-/* Change padding and background color of unordered lists */
-ul {
-  padding: 10px; /* 1st change: Increase padding */
-  background-color: darkgrey /* 2nd change: Change background color */
-}
-
-/* Change font size and font style of top name */
-#name {
-  font-size: 36px; /* 1st change: Increase font size */
-  font-style: italic; /* 2nd change: Apply italic font style */
-}
-}
-/* Media query for larger screens */
-@media (min-width: 1025px) {
   /* Change font size and color of headers */
-  h1, h2, h3 {
-    font-size: 32px; /* 1st change: Increase font size */
-    color: black; /* 2nd change: Adjust text color */
+  h1,
+  h2,
+  h3 {
+    font-size: 24px; /* Decrease font size */
+    color: whitesmoke; /* Change text color */
+    text-align: center; /* Center the text */
   }
 
   /* Change padding and background color of unordered lists */
   ul {
-    padding: 15px; /* 1st change: Increase padding further */
-    background-color: gray /* 2nd change: Lighter background color */
+    padding: 10px; /* Increase padding */
+    background-color: darkgray; /* Change background color */
+  }
+
+  /* Change font size and font style of top name */
+  #name {
+    font-size: 36px; /* Increase font size */
+    font-style: italic; /* Apply italic font style */
+    text-align: center; /* Center the text */
+  }
+}
+
+/* Media query for larger screens */
+@media (min-width: 1025px) {
+  /* Change font size and color of headers */
+  h1,
+  h2,
+  h3 {
+    font-size: 32px; /* Increase font size */
+    color: black; /* Adjust text color */
+    text-align: center; /* Center the text */
+  }
+
+  /* Change padding and background color of unordered lists */
+  ul {
+    padding: 15px; /* Increase padding further */
+    background-color: lightgray /* Lighter background color */
   }
 
   /* Change font size and font weight of top name */
   #name {
-    font-size: 48px; /* 1st change: Increase font size further */
-    font-weight: bold; /* 2nd change: Apply bold font weight */
+    font-size: 48px; /* Increase font size further */
+    font-weight: bold; /* Apply bold font weight */
+    text-align: center; /* Center the text */
   }
 }
