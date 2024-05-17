@@ -1,137 +1,190 @@
-// Wait for the DOM content to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
-    // Create a new 'footer' element
-    var footerElement = document.createElement("footer");
+    // Prevent default refreshing behavior of the "submit" event
+    document.querySelector("form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default behavior of form submission
+        // Get the values from the form inputs
+        let usersEmail = document.getElementById("usersEmail").value;
+        let usersName = document.getElementById("usersName").value;
+        let usersMessage = document.getElementById("usersMessage").value;
 
-    // Set some content or attributes for the footer if needed
-    footerElement.textContent = "This is the footer.";
+        // Create a new list item element for a new message
+        let newMessage = document.createElement("li");
+
+        // Set the inner HTML of the newMessage element
+        newMessage.innerHTML = `
+          <a href="mailto:${usersEmail}">${usersName}</a>
+          <span>${usersMessage}</span>
+        `;
+
+        // Create a new button element for editing messages
+        let editButton = document.createElement("button");
+        editButton.innerText = "edit";
+        editButton.type = "button";
+
+        // Add event listener to the editButton
+        editButton.addEventListener("click", function() {
+            let newMessageText = prompt("Enter the new message:");
+            if (newMessageText !== null && newMessageText !== "") {
+                newMessage.querySelector("span").textContent = newMessageText;
+            }
+        });
+
+        // Create a new button element for removing messages
+        let removeButton = document.createElement("button");
+        removeButton.innerText = "remove";
+        removeButton.type = "button";
+
+        // Add event listener to the removeButton
+        removeButton.addEventListener("click", function() {
+            // Find the button's parent element using DOM Traversal
+            let entry = removeButton.parentNode;
+
+            // Remove the entry element from the DOM
+            entry.remove();
+
+            // Update visibility after removing an entry
+            updateVisibility();
+        });
+
+        // Append the editButton and removeButton to the newMessage
+        newMessage.appendChild(editButton);
+        newMessage.appendChild(removeButton);
+
+        // Select the #messages section by id
+        let messageSection = document.getElementById("messages");
+
+        // Select the <ul> element within the messageSection
+        let messageList = messageSection.querySelector("ul");
+
+        // Append the newMessage to the messageList
+        messageList.appendChild(newMessage);
+
+        // Update visibility after adding a new message
+        updateVisibility();
+
+        // Clear form inputs after submission
+        document.getElementById("usersEmail").value = "";
+        document.getElementById("usersName").value = "";
+        document.getElementById("usersMessage").value = "";
+    });
+
+   // Function to update visibility of the messages section
+function updateVisibility() {
+    // Select the #messages section by id
+    let messageSection = document.getElementById("messages");
+
+    // Select the <ul> element within the messageSection
+    let messageList = messageSection.querySelector("ul");
+
+    // Check if the messageList is empty
+    if (messageList.children.length === 0) {
+        // Hide the messages section and header
+        messageSection.hidden = true;
+    } else {
+        // Show the messages section and header
+        messageSection.hidden = false;
+    }
+}
+    // Create a new 'footer' element
+    let footerElement = document.createElement("footer");
 
     // Get the <body> element
-    var bodyElement = document.body;
+    let bodyElement = document.body;
 
     // Append the 'footer' element as the last child of the <body> element
     bodyElement.appendChild(footerElement);
+
     // Create a new Date object and assign it to the variable 'today'
-var today = new Date();
+    let today = new Date();
 
-// You can also log 'today' to see the current date and time
-console.log(today);
-// Create a new Date object to get the current year
-var currentDate = new Date();
+    // You can also log 'today' to see the current date and time
+    console.log(today);
 
-// Get the current year using the getFullYear() method
-var thisYear = currentDate.getFullYear();
+    // Create a new Date object to get the current year
+    let currentDate = new Date();
 
-// You can log 'thisYear' to verify it has the correct value
-console.log(thisYear);
-// Select the footer element using querySelector
-var footer = document.querySelector("footer");
+    // Get the current year using the getFullYear() method
+    let thisYear = currentDate.getFullYear();
 
-// You can log 'footer' to verify that it has the correct element
-console.log(footer);
-// Create a new paragraph element using createElement()
-var copyright = document.createElement("p");
+    // You can log 'thisYear' to verify it has the correct value
+    console.log(thisYear);
 
-// You can log 'copyright' to verify that it is a new <p> element
-console.log(copyright);
-// Create a new paragraph element using createElement()
-var copyright = document.createElement("p");
+    // Select the footer element using querySelector
+    let footer = document.querySelector("footer");
 
-// Set the inner HTML of the copyright element
-copyright.innerHTML = "&#169; Brandon Warren " + thisYear;
+    // You can log 'footer' to verify that it has the correct element
+    console.log(footer);
 
-// Select the footer element using querySelector
-var footer = document.querySelector("footer");
+    // Create a new paragraph element using createElement()
+    let copyright = document.createElement("p");
 
-// Append the copyright element to the footer
-footer.appendChild(copyright);
+    // Set the inner HTML of the copyright element
+    copyright.innerHTML = "&#169; Brandon Warren " + thisYear;
 
-// You can log 'footer' to verify that the copyright element is appended to the footer
-console.log(footer);
+    // Append the copyright element to the footer
+    footer.appendChild(copyright);
 
-// Array of technical skills
-var skills = ["JavaScript", "HTML", "CSS", "Adobe Photoshop", "GitHub"];
+    // You can log 'footer' to verify that the copyright element is appended to the footer
+    console.log(footer);
 
-// Select the skills section by id
-var skillsSection = document.getElementById("Skills");
+    // Array of technical skills
+    let skills = ["JavaScript", "HTML", "CSS", "Adobe Photoshop", "GitHub"];
 
-// Query the skillsSection to select the <ul> element
-var skillsList = skillsSection.querySelector("ul");
+    // Select the skills section by id
+    let skillsSection = document.getElementById("Skills");
 
-// Loop through the skills array
-for (var i = 0; i < skills.length; i++) {
-    // Create a new list item element for each skill
-    var skill = document.createElement("li");
+    // Query the skillsSection to select the <ul> element
+    let skillsList = skillsSection.querySelector("ul");
 
-    // Set the inner text of the skill item to the current skill from the array
-    skill.innerText = skills[i];
+    // Loop through the skills array
+    for (var i = 0; i < skills.length; i++) {
+        // Create a new list item element for each skill
+        let skill = document.createElement("li");
 
-    // Append the skill item to the skillsList
-    skillsList.appendChild(skill);
-}
- // Select the #messages section by id
- var messageSection = document.getElementById("messages");
+        // Set the inner text of the skill item to the current skill from the array
+        skill.innerText = skills[i];
 
- // Select the <ul> element within the messageSection
- var messageList = messageSection.querySelector("ul");
-
- function updateVisibility() {
-    // Check if the messageList is empty
-    if (messageList.children.length === 0) {
-        messageSection.style.display = "none"; // Hide the messages section
-    } else {
-        messageSection.style.display = "block"; // Show the messages section
+        // Append the skill item to the skillsList
+        skillsList.appendChild(skill);
     }
-}
- // Create a new list item element for a new message
- var newMessage = document.createElement("li");
 
-  // Set the inner HTML of the newMessage element
-  newMessage.innerHTML = `
-  <a href="mailto:${usersEmail}">${usersName}</a>
-  <span>${usersMessage}</span>
-`;
+    // Select the #messages section by id
+    let messageSection = document.getElementById("messages");
 
-// Create a new button element for editing messages
-var editButton = document.createElement("button");
-editButton.innerText = "edit";
-editButton.type = "button";
+    // Select the <ul> element within the messageSection
+    let messageList = messageSection.querySelector("ul");
 
-// Add event listener to the editButton
-editButton.addEventListener("click", function() {
-    var newMessageText = prompt("Enter the new message:");
-    if (newMessageText !== null && newMessageText !== "") {
-        newMessage.querySelector("span").textContent = newMessageText;
-    }
-});
 
-  // Create a new button element for removing messages
-  var removeButton = document.createElement("button");
-  removeButton.innerText = "remove";
-  removeButton.type = "button";
+    // Fetch GitHub repositories
+    const GITHUB_USERNAME = 'brandon91warren';
+    const apiUrl = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
-  // Add event listener to the removeButton
-  removeButton.addEventListener("click", function() {
-      // Find the button's parent element using DOM Traversal
-      var entry = removeButton.parentNode;
+    // Create variables for projects section and list
+    let projectSection = document.getElementById("Projects");
+    let projectList = projectSection.querySelector("ul");
 
-      // Remove the entry element from the DOM
-      entry.remove();
-  });
+    // Fetch GitHub repositories
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const repositories = data;
+            console.log(repositories); // Log the parsed data to see the repositories
+            return repositories; // Pass the repositories data to the next then block
+        })
+        .then(repositories => {
+            // Loop through repositories to create list items
+            repositories.forEach(repo => {
+                // Create a new list item element for each repository
+                var project = document.createElement("li");
 
-// Update visibility after removing an entry
-updateVisibility();
-});
+                // Set the inner text of the project item to the repository name
+                project.innerText = repo.name;
 
-// Append the editButton and removeButton to the newMessage
-newMessage.appendChild(editButton);
-newMessage.appendChild(removeButton);
-
-// Append the newMessage to the messageList
-messageList.appendChild(newMessage);
-
-// Update visibility after adding a new message
-updateVisibility();
-
-// Example of creating a new message
-createNewMessage("Example message");
+                // Append the project item to the projectList
+                projectList.appendChild(project);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error); // Log and handle errors from the server
+        });
+    });
