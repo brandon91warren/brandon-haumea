@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector("form").addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent the default behavior of form submission
         // Get the values from the form inputs
-        var usersEmail = document.getElementById("usersEmail").value;
-        var usersName = document.getElementById("usersName").value;
-        var usersMessage = document.getElementById("usersMessage").value;
+        let usersEmail = document.getElementById("usersEmail").value;
+        let usersName = document.getElementById("usersName").value;
+        let usersMessage = document.getElementById("usersMessage").value;
 
         // Create a new list item element for a new message
-        var newMessage = document.createElement("li");
+        let newMessage = document.createElement("li");
 
         // Set the inner HTML of the newMessage element
         newMessage.innerHTML = `
@@ -17,27 +17,27 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
         // Create a new button element for editing messages
-        var editButton = document.createElement("button");
+        let editButton = document.createElement("button");
         editButton.innerText = "edit";
         editButton.type = "button";
 
         // Add event listener to the editButton
         editButton.addEventListener("click", function() {
-            var newMessageText = prompt("Enter the new message:");
+            let newMessageText = prompt("Enter the new message:");
             if (newMessageText !== null && newMessageText !== "") {
                 newMessage.querySelector("span").textContent = newMessageText;
             }
         });
 
         // Create a new button element for removing messages
-        var removeButton = document.createElement("button");
+        let removeButton = document.createElement("button");
         removeButton.innerText = "remove";
         removeButton.type = "button";
 
         // Add event listener to the removeButton
         removeButton.addEventListener("click", function() {
             // Find the button's parent element using DOM Traversal
-            var entry = removeButton.parentNode;
+            let entry = removeButton.parentNode;
 
             // Remove the entry element from the DOM
             entry.remove();
@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
         newMessage.appendChild(removeButton);
 
         // Select the #messages section by id
-        var messageSection = document.getElementById("messages");
+        let messageSection = document.getElementById("messages");
 
         // Select the <ul> element within the messageSection
-        var messageList = messageSection.querySelector("ul");
+        let messageList = messageSection.querySelector("ul");
 
         // Append the newMessage to the messageList
         messageList.appendChild(newMessage);
@@ -68,57 +68,55 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("usersMessage").value = "";
     });
 
-    // Function to update visibility of the messages section
-    function updateVisibility() {
-        // Select the #messages section by id
-        var messageSection = document.getElementById("messages");
+   // Function to update visibility of the messages section
+function updateVisibility() {
+    // Select the #messages section by id
+    let messageSection = document.getElementById("messages");
 
-        // Select the <ul> element within the messageSection
-        var messageList = messageSection.querySelector("ul");
+    // Select the <ul> element within the messageSection
+    let messageList = messageSection.querySelector("ul");
 
-        // Check if the messageList is empty
-        if (messageList.children.length === 0) {
-            // Hide the messages section and header
-            messageSection.style.display = "none";
-            messageSection.previousElementSibling.style.display = "none"; // Hide the header
-        } else {
-            // Show the messages section and header
-            messageSection.style.display = "block";
-            messageSection.previousElementSibling.style.display = "block"; // Show the header
-        }
+    // Check if the messageList is empty
+    if (messageList.children.length === 0) {
+        // Hide the messages section and header
+        messageSection.hidden = true;
+    } else {
+        // Show the messages section and header
+        messageSection.hidden = false;
     }
+}
     // Create a new 'footer' element
-    var footerElement = document.createElement("footer");
+    let footerElement = document.createElement("footer");
 
     // Get the <body> element
-    var bodyElement = document.body;
+    let bodyElement = document.body;
 
     // Append the 'footer' element as the last child of the <body> element
     bodyElement.appendChild(footerElement);
 
     // Create a new Date object and assign it to the variable 'today'
-    var today = new Date();
+    let today = new Date();
 
     // You can also log 'today' to see the current date and time
     console.log(today);
 
     // Create a new Date object to get the current year
-    var currentDate = new Date();
+    let currentDate = new Date();
 
     // Get the current year using the getFullYear() method
-    var thisYear = currentDate.getFullYear();
+    let thisYear = currentDate.getFullYear();
 
     // You can log 'thisYear' to verify it has the correct value
     console.log(thisYear);
 
     // Select the footer element using querySelector
-    var footer = document.querySelector("footer");
+    let footer = document.querySelector("footer");
 
     // You can log 'footer' to verify that it has the correct element
     console.log(footer);
 
     // Create a new paragraph element using createElement()
-    var copyright = document.createElement("p");
+    let copyright = document.createElement("p");
 
     // Set the inner HTML of the copyright element
     copyright.innerHTML = "&#169; Brandon Warren " + thisYear;
@@ -130,18 +128,18 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(footer);
 
     // Array of technical skills
-    var skills = ["JavaScript", "HTML", "CSS", "Adobe Photoshop", "GitHub"];
+    let skills = ["JavaScript", "HTML", "CSS", "Adobe Photoshop", "GitHub"];
 
     // Select the skills section by id
-    var skillsSection = document.getElementById("Skills");
+    let skillsSection = document.getElementById("Skills");
 
     // Query the skillsSection to select the <ul> element
-    var skillsList = skillsSection.querySelector("ul");
+    let skillsList = skillsSection.querySelector("ul");
 
     // Loop through the skills array
     for (var i = 0; i < skills.length; i++) {
         // Create a new list item element for each skill
-        var skill = document.createElement("li");
+        let skill = document.createElement("li");
 
         // Set the inner text of the skill item to the current skill from the array
         skill.innerText = skills[i];
@@ -151,10 +149,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Select the #messages section by id
-    var messageSection = document.getElementById("messages");
+    let messageSection = document.getElementById("messages");
 
     // Select the <ul> element within the messageSection
-    var messageList = messageSection.querySelector("ul");
+    let messageList = messageSection.querySelector("ul");
 
 
     // Fetch GitHub repositories
@@ -162,8 +160,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const apiUrl = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
     // Create variables for projects section and list
-    var projectSection = document.getElementById("Projects");
-    var projectList = projectSection.querySelector("ul");
+    let projectSection = document.getElementById("Projects");
+    let projectList = projectSection.querySelector("ul");
 
     // Fetch GitHub repositories
     fetch(apiUrl)
