@@ -131,10 +131,10 @@ function updateVisibility() {
     let skills = ["JavaScript", "HTML", "CSS", "Adobe Photoshop", "GitHub"];
 
     // Select the skills section by id
-    let skillsSection = document.getElementById("Skills");
+    const skillsSection = document.getElementById("Skills");
 
     // Query the skillsSection to select the <ul> element
-    let skillsList = skillsSection.querySelector("ul");
+    const skillsList = skillsSection.querySelector("ul");
 
     // Loop through the skills array
     for (var i = 0; i < skills.length; i++) {
